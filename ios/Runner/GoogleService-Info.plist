@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>660659064564-68bdda3nkmbqlo45q6u0k69gammbpqsn.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.660659064564-68bdda3nkmbqlo45q6u0k69gammbpqsn</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>660659064564-l3gqe0e047gkuk93m0gu05ajphni2l2n.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAMO_sx7aR5OyHINEtvE-0ECUXJf8JyUXI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>660659064564</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>uk.co.busybeelearning.busybeelearning</string>
+	<key>PROJECT_ID</key>
+	<string>busybeeapp-c24fb</string>
+	<key>STORAGE_BUCKET</key>
+	<string>busybeeapp-c24fb.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:660659064564:ios:2df655189ab237843fd8a1</string>
+</dict>
+</plist>

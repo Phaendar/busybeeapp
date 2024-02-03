@@ -1,0 +1,60 @@
+name: busybeelearning
+description: A fun learning app.
+publish_to: 'none'
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.17.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.5
+  firebase_core: ^2.15.0
+  cloud_firestore: ^4.8.4
+  firebase_auth: ^4.7.2
+  google_sign_in: ^6.2.1
+  sign_in_with_apple: 5.0.0
+  crypto: 3.0.3
+  font_awesome_flutter: ^10.6.0
+  google_fonts: ^6.1.0
+  provider: ^6.1.1
+  rxdart: 0.27.7
+  json_annotation: 4.8.1
+  curved_navigation_bar: 1.0.3
+  flutter_quill: ^9.2.10
+  chewie: ^1.7.4
+  video_player: ^2.8.2
+  percent_indicator: ^4.2.3
+  audioplayers: ^5.1.0
+  zefyr: ^1.0.0-rc.5
+  quill_delta: ^3.0.0-nullsafety.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.1
+
+  build_runner: ^2.4.8
+  json_serializable: 6.7.1
+
+flutter:
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/logo.png
+    - assets/
+    - assets/covers/
+    - assets/covers/geography.png
+    - assets/covers/default.png
+    - assets/congrats.gif
+    - lib/lessons/geography/lesson01/video.mp4
+    - lib/lessons/geography/lesson01/content.json
+    - assets/songs/
+    - assets/songs/covers/
+    

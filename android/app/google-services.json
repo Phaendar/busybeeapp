@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "660659064564",
+    "project_id": "busybeeapp-c24fb",
+    "storage_bucket": "busybeeapp-c24fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:660659064564:android:d21134e26f6949f03fd8a1",
+        "android_client_info": {
+          "package_name": "uk.co.busybeelearning"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "660659064564-l3gqe0e047gkuk93m0gu05ajphni2l2n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "uk.co.busybeelearning",
+            "certificate_hash": "57dfb2f713179986006e26869ea0737feebea369"
+          }
+        },
+        {
+          "client_id": "660659064564-jcb5rudf5itogim3qokvvha8oi1a3qrc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC83rHqolnI_t-E6lGBbJ-mwrM5FhvqO30"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "660659064564-jcb5rudf5itogim3qokvvha8oi1a3qrc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "660659064564-68bdda3nkmbqlo45q6u0k69gammbpqsn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "uk.co.busybeelearning.busybeelearning"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:660659064564:android:b7093c8336155cdc3fd8a1",
+        "android_client_info": {
+          "package_name": "uk.co.busybeelearning.busybeelearning"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "660659064564-jcb5rudf5itogim3qokvvha8oi1a3qrc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC83rHqolnI_t-E6lGBbJ-mwrM5FhvqO30"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "660659064564-jcb5rudf5itogim3qokvvha8oi1a3qrc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "660659064564-68bdda3nkmbqlo45q6u0k69gammbpqsn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "uk.co.busybeelearning.busybeelearning"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
