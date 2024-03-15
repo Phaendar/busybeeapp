@@ -8,10 +8,10 @@ class NoteDetailScreen extends StatefulWidget {
   const NoteDetailScreen({super.key, required this.note});
 
   @override
-  _NoteDetailScreenState createState() => _NoteDetailScreenState();
+  NoteDetailScreenState createState() => NoteDetailScreenState();
 }
 
-class _NoteDetailScreenState extends State<NoteDetailScreen> {
+class NoteDetailScreenState extends State<NoteDetailScreen> {
   bool _isEditing = false;
   late TextEditingController _controller;
 

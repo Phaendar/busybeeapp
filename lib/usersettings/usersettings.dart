@@ -5,10 +5,10 @@ class UserSettingsPage extends StatefulWidget {
   const UserSettingsPage({super.key});
 
   @override
-  _UserSettingsPageState createState() => _UserSettingsPageState();
+  UserSettingsPageState createState() => UserSettingsPageState();
 }
 
-class _UserSettingsPageState extends State<UserSettingsPage> {
+class UserSettingsPageState extends State<UserSettingsPage> {
   bool _privateMode = true; // Default value
   bool _setting2 = false; // Default value
   String _selectedTimeLimit = 'Unlimited'; // Default value

@@ -12,10 +12,10 @@ class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key, this.initialIndex = 0});
 
   @override
-  _BottomNavBarState createState() => _BottomNavBarState();
+  BottomNavBarState createState() => BottomNavBarState();
 }
 
-class _BottomNavBarState extends State<BottomNavBar> {
+class BottomNavBarState extends State<BottomNavBar> {
   late int _currentIndex;
 
   @override

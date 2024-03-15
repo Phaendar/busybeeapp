@@ -453,10 +453,10 @@ class FavoriteButton extends StatefulWidget {
   const FavoriteButton({super.key});
 
   @override
-  _FavoriteButtonState createState() => _FavoriteButtonState();
+  FavoriteButtonState createState() => FavoriteButtonState();
 }
 
-class _FavoriteButtonState extends State<FavoriteButton> {
+class FavoriteButtonState extends State<FavoriteButton> {
   bool _isFavorited = false;
 
   void _toggleFavorite() {

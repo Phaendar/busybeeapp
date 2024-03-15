@@ -13,10 +13,10 @@ class LessonDetailsScreen extends StatefulWidget {
   const LessonDetailsScreen({super.key, required this.lesson});
 
   @override
-  _LessonDetailsScreenState createState() => _LessonDetailsScreenState();
+  LessonDetailsScreenState createState() => LessonDetailsScreenState();
 }
 
-class _LessonDetailsScreenState extends State<LessonDetailsScreen> {
+class LessonDetailsScreenState extends State<LessonDetailsScreen> {
   late final ChewieController _chewieController;
   String? lessonText;
 

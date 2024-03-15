@@ -85,7 +85,7 @@ Map<String, dynamic> _$ReportToJson(Report instance) => <String, dynamic>{
       'topics': instance.topics,
     };
 
-Note _$NoteFromJson(Map<String, dynamic> json) => Note(
+Note $NoteFromJson(Map<String, dynamic> json) => Note(
       id: json['id'] as String? ?? '',
       title: json['title'] as String? ?? '',
       content: json['content'] as String? ?? '',
@@ -93,7 +93,7 @@ Note _$NoteFromJson(Map<String, dynamic> json) => Note(
       createdAt: DateTime.parse(json['createdAt'] as String),
     );
 
-Map<String, dynamic> _$NoteToJson(Note instance) => <String, dynamic>{
+Map<String, dynamic> $NoteToJson(Note instance) => <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
       'content': instance.content,
