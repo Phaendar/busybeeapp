@@ -66,11 +66,15 @@ class StartPage extends StatelessWidget {
     var state = Provider.of<QuizState>(context);
 
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(40),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(quiz.title, style: Theme.of(context).textTheme.headlineMedium),
+          Text(quiz.title,
+              style: const TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black)),
           const Divider(),
           Expanded(child: Text(quiz.description)),
           ButtonBar(
@@ -114,10 +118,16 @@ class CongratsPage extends StatelessWidget {
             icon: const Icon(FontAwesomeIcons.check),
             label: const Text(' Mark Complete!'),
             onPressed: () {
+              // Update the user's report
               FirestoreService().updateUserReport(quiz);
+
+              //Update the user's points locally
+              Provider.of<QuizState>(context, listen: false).completeQuiz(quiz);
+
+              // Navigate to the topics page
               Navigator.pushNamedAndRemoveUntil(
                 context,
-                '/topics',
+                '/quizoverview',
                 (route) => false,
               );
             },

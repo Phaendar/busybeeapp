@@ -4,6 +4,7 @@ import 'package:busybeelearning/shared/neu_box.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'songs_data.dart';
+import 'package:busybeelearning/colors.dart' as customcolor;
 
 class MusicPlayerScreen extends StatefulWidget {
   final int selectedIndex;
@@ -179,7 +180,7 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen>
       key: _key,
       drawer:
           MusicDrawer(onSongSelected: playSelectedSong), // Pass the callback
-      backgroundColor: Colors.yellow,
+      backgroundColor: customcolor.AppColor.primaryColor,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -215,7 +216,11 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen>
                       )),
                     ),
                   ),
-                  const Text('M U S I C P L A Y E R'),
+                  const Text('STUDY MUSIC',
+                      style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black)),
                   FilledButton(
                     style: ButtonStyle(
                       padding: MaterialStateProperty.all(EdgeInsets.zero),
@@ -245,7 +250,7 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen>
 
               //song name and artist name and cover image
               SizedBox(
-                height: 425,
+                height: 440,
                 width: 425,
                 child: SlideTransition(
                   position: Tween<Offset>(
@@ -263,7 +268,8 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen>
                             child: Image.asset(
                                 songList[currentIndex]['coverImage']!)),
                         Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding:
+                              const EdgeInsets.fromLTRB(4.0, 6.0, 4.0, 4.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [

@@ -45,12 +45,13 @@ class FirestoreService {
   }
 
   /// Updates the current user's report document after completing quiz
-  Future<void> updateUserReport(Quiz quiz) {
+  Future<void> updateUserReport(Quiz quiz, {int pointsAwarded = 10}) {
     var user = AuthService().user!;
     var ref = _db.collection('reports').doc(user.uid);
 
     var data = {
       'total': FieldValue.increment(1),
+      'score': FieldValue.increment(pointsAwarded),
       'topics': {
         quiz.topic: FieldValue.arrayUnion([quiz.id])
       }
@@ -125,7 +126,6 @@ class FirestoreService {
     await ref.update({
       'title': note.title,
       'content': note.content,
-      // ... any other fields you have in the Note model ...
     });
   }
 }

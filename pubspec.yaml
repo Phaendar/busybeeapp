@@ -32,6 +32,9 @@ dependencies:
   audioplayers: ^5.1.0
   zefyr: ^1.0.0-rc.5
   quill_delta: ^3.0.0-nullsafety.2
+  flutter_calendar_carousel: ^2.0.2
+  url_launcher: ^6.2.4
+  shared_preferences: ^2.2.2
 
 dev_dependencies:
   flutter_test:
@@ -51,10 +54,11 @@ flutter:
     - assets/
     - assets/covers/
     - assets/covers/geography.png
-    - assets/covers/default.png
     - assets/congrats.gif
     - lib/lessons/geography/lesson01/video.mp4
     - lib/lessons/geography/lesson01/content.json
     - assets/songs/
     - assets/songs/covers/
+    - assets/bg_01.jpg
+    - assets/bg_02.jpg
     

@@ -48,33 +48,21 @@ class NotesScreen extends StatelessWidget {
                     gradient: customcolor.AppColor.customGradient),
               ),
             ),
-            body: Column(
-              children: [
-                const Padding(
-                  padding: EdgeInsets.only(top: 10, bottom: 20),
+            body: Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/bg_02.jpg'),
+                  fit: BoxFit.cover,
                 ),
-                Container(
-                  margin: const EdgeInsets.all(15),
-                  clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    color: Colors.grey.shade300,
-                    boxShadow: [
-                      // dark shadow bottom right
-                      BoxShadow(
-                        color: Colors.grey.shade500,
-                        offset: const Offset(5, 5),
-                        blurRadius: 15.0,
-                      ),
-                      // light shadow top left
-                      const BoxShadow(
-                        color: Colors.white,
-                        offset: Offset(-5, -5),
-                        blurRadius: 15.0,
-                      ),
-                    ],
+              ),
+              child: Column(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(top: 10, bottom: 20),
                   ),
-                  child: CupertinoListSection.insetGrouped(
+                  Container(
+                    margin: const EdgeInsets.all(15),
+                    clipBehavior: Clip.antiAlias,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
                       color: Colors.grey.shade300,
@@ -93,43 +81,63 @@ class NotesScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    margin: EdgeInsets.zero,
-                    backgroundColor: customcolor.AppColor.homePageBackground,
-                    children: snapshot.data!
-                        .map((note) => CupertinoListTile(
-                            backgroundColor:
-                                customcolor.AppColor.homePageBackground,
-                            title: Text(note.title),
-                            trailing: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                IconButton(
-                                  icon: const Icon(Icons.delete,
-                                      color: Colors.red),
-                                  onPressed: () async {
-                                    await FirestoreService()
-                                        .deleteNote(note.id);
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                        const SnackBar(
-                                            content: Text(
-                                                'Note deleted successfully!')));
-                                  },
-                                ),
-                                const Icon(CupertinoIcons.right_chevron),
-                              ],
-                            ),
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        NoteDetailScreen(note: note)),
-                              );
-                            }))
-                        .toList(),
-                  ),
-                )
-              ],
+                    child: CupertinoListSection.insetGrouped(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        color: Colors.grey.shade300,
+                        boxShadow: [
+                          // dark shadow bottom right
+                          BoxShadow(
+                            color: Colors.grey.shade500,
+                            offset: const Offset(5, 5),
+                            blurRadius: 15.0,
+                          ),
+                          // light shadow top left
+                          const BoxShadow(
+                            color: Colors.white,
+                            offset: Offset(-5, -5),
+                            blurRadius: 15.0,
+                          ),
+                        ],
+                      ),
+                      margin: EdgeInsets.zero,
+                      backgroundColor: customcolor.AppColor.homePageBackground,
+                      children: snapshot.data!
+                          .map((note) => CupertinoListTile(
+                              backgroundColor:
+                                  customcolor.AppColor.primaryColor,
+                              title: Text(note.title),
+                              trailing: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  IconButton(
+                                    icon: const Icon(Icons.delete,
+                                        color: Colors.red),
+                                    onPressed: () async {
+                                      await FirestoreService()
+                                          .deleteNote(note.id);
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(const SnackBar(
+                                              content: Text(
+                                                  'Note deleted successfully!')));
+                                    },
+                                  ),
+                                  const Icon(CupertinoIcons.right_chevron),
+                                ],
+                              ),
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          NoteDetailScreen(note: note)),
+                                );
+                              }))
+                          .toList(),
+                    ),
+                  )
+                ],
+              ),
             ),
             floatingActionButton: Container(
               decoration: BoxDecoration(

@@ -12,7 +12,16 @@ class LessonsOverviewScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<LessonTopic>>(
-      future: FirestoreService().getLessonTopics(),
+      future: checkIfLimitReached().then((limitReached) {
+        if (limitReached) {
+          // If limit is reached, show dialog and return an empty list to stop further processing
+          Future.microtask(() => _showLimitReachedDialog(context));
+          return []; // Return an empty list to prevent further processing
+        } else {
+          // If limit not reached, proceed with fetching lesson topics
+          return FirestoreService().getLessonTopics();
+        }
+      }),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const LoadingScreen();
@@ -22,57 +31,86 @@ class LessonsOverviewScreen extends StatelessWidget {
           );
         } else if (snapshot.hasData) {
           var lessontopics = snapshot.data!;
-
           return Scaffold(
             appBar: AppBar(
-                title: const Text(
-                  'Lesson Topics',
-                  textAlign: TextAlign.center,
+              title: const Text(
+                'Lesson Topics',
+                textAlign: TextAlign.center,
+              ),
+              actions: [
+                IconButton(
+                  icon: const Icon(Icons.library_music),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/musicplayer');
+                  },
                 ),
-                actions: [
-                  IconButton(
-                    icon: const Icon(Icons.library_music),
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/musicplayer');
-                    },
-                  ),
-                ],
-                flexibleSpace: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    boxShadow: [
-                      // dark shadow bottom right
-                      BoxShadow(
-                        color: Colors.yellow.shade700,
-                        offset: const Offset(0, 5),
-                        blurRadius: 10.0,
-                      ),
-                    ],
-                    gradient: LinearGradient(
-                      colors: [
-                        customcolor.AppColor.gradientFirst,
-                        customcolor.AppColor.gradientSecond,
-                      ],
-                      begin: Alignment.bottomRight,
-                      end: Alignment.topLeft,
+              ],
+              flexibleSpace: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.yellow.shade700,
+                      offset: const Offset(0, 5),
+                      blurRadius: 10.0,
                     ),
+                  ],
+                  gradient: LinearGradient(
+                    colors: [
+                      customcolor.AppColor.gradientFirst,
+                      customcolor.AppColor.gradientSecond,
+                    ],
+                    begin: Alignment.bottomRight,
+                    end: Alignment.topLeft,
                   ),
-                )),
-            body: GridView.count(
-              primary: false,
-              padding: const EdgeInsets.all(20.0),
-              crossAxisSpacing: 10.0,
-              crossAxisCount: 2,
-              children: lessontopics
-                  .map((topic) => LessonTopicItem(lessontopic: topic))
-                  .toList(),
+                ),
+              ),
+            ),
+            body: Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/bg_02.jpg'),
+                  fit: BoxFit.cover,
+                  opacity: 1,
+                ),
+              ),
+              child: GridView.count(
+                primary: false,
+                padding: const EdgeInsets.all(20.0),
+                crossAxisSpacing: 10.0,
+                crossAxisCount: 2,
+                children: lessontopics
+                    .map((topic) => LessonTopicItem(lessontopic: topic))
+                    .toList(),
+              ),
             ),
             bottomNavigationBar: const BottomNavBar(initialIndex: 2),
           );
         }
-
-        // Default return case, ideally should not reach here
+        // Default return case
         return const SizedBox.shrink();
+      },
+    );
+  }
+
+  void _showLimitReachedDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: false, // User must tap button to close dialog
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text("Time Limit Reached"),
+          content: const Text("You've reached your daily usage limit."),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Return to Dashboard'),
+              onPressed: () {
+                // Navigate back to the dashboard screen
+                Navigator.of(context).popUntil((route) => route.isFirst);
+              },
+            ),
+          ],
+        );
       },
     );
   }

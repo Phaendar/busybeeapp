@@ -1,3 +1,4 @@
+import 'package:busybeelearning/notes/notes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:busybeelearning/services/services.dart';
@@ -28,7 +29,11 @@ class _NewNoteScreenState extends State<NewNoteScreen> {
           createdAt: DateTime.now(),
         ));
         // ignore: use_build_context_synchronously
-        Navigator.pop(context);
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (context) => const NotesScreen()),
+          (route) => false,
+        );
       } catch (e) {
         // Handle any error that might occur
         _showErrorDialog('Error creating note');
@@ -47,6 +52,16 @@ class _NewNoteScreenState extends State<NewNoteScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (context) => const NotesScreen()),
+              (route) => false,
+            );
+          },
+        ),
         title: const Text('Add Note'),
         flexibleSpace: Container(
           decoration: BoxDecoration(

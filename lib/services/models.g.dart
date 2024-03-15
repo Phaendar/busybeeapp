@@ -75,11 +75,13 @@ Report _$ReportFromJson(Map<String, dynamic> json) => Report(
       uid: json['uid'] as String? ?? '',
       topics: json['topics'] as Map<String, dynamic>? ?? const {},
       total: json['total'] as int? ?? 0,
+      score: json['score'] as int? ?? 0,
     );
 
 Map<String, dynamic> _$ReportToJson(Report instance) => <String, dynamic>{
       'uid': instance.uid,
       'total': instance.total,
+      'score': instance.score,
       'topics': instance.topics,
     };
 

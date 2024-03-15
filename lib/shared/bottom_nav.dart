@@ -5,7 +5,6 @@ import 'package:busybeelearning/profile/profile.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:busybeelearning/quizoverview/quizoverview.dart';
-import 'package:busybeelearning/colors.dart' as customcolor;
 
 class BottomNavBar extends StatefulWidget {
   final int initialIndex;
@@ -59,7 +58,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       index: _currentIndex,
       onTap: _navigateBottomBar,
       animationDuration: const Duration(milliseconds: 300),
-      backgroundColor: customcolor.AppColor.homePageBackground,
+      backgroundColor: const Color.fromRGBO(228, 217, 189, 1.0),
       buttonBackgroundColor: Colors.yellow.shade600,
       color: const Color.fromARGB(255, 255, 196, 0),
       height: 55,

@@ -1,6 +1,7 @@
 import 'package:busybeelearning/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:busybeelearning/colors.dart' as customcolor;
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -24,11 +25,31 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             Flexible(
-              child: LoginButton(
-                icon: FontAwesomeIcons.userNinja,
-                text: 'Continue as Guest',
-                loginMethod: AuthService().anonLogin,
-                color: Colors.yellow,
+              child: Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.circular(30),
+                  boxShadow: const [
+                    // dark shadow bottom right
+                    BoxShadow(
+                      color: Color.fromARGB(255, 150, 115, 0),
+                      offset: Offset(5, 5),
+                      blurRadius: 3,
+                    ),
+                    // light shadow top left
+                    BoxShadow(
+                      color: Color.fromARGB(255, 255, 226, 131),
+                      offset: Offset(-5, -5),
+                      blurRadius: 3,
+                    ),
+                  ],
+                ),
+                child: LoginButton(
+                  icon: FontAwesomeIcons.userNinja,
+                  text: 'Continue as Guest',
+                  loginMethod: AuthService().anonLogin,
+                  color: customcolor.AppColor.primaryColor,
+                ),
               ),
             ),
             LoginButton(

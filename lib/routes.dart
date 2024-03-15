@@ -7,6 +7,7 @@ import 'package:busybeelearning/notes/new_note.dart';
 import 'package:busybeelearning/notes/notes.dart';
 import 'package:busybeelearning/profile/profile.dart';
 import 'package:busybeelearning/quizoverview/quizoverview.dart';
+import 'package:busybeelearning/usersettings/usersettings.dart';
 
 var appRoutes = {
   '/': (context) => const HomeScreen(),
@@ -18,4 +19,5 @@ var appRoutes = {
   '/new-note': (context) => const NewNoteScreen(),
   '/lessonsoverview': (context) => const LessonsOverviewScreen(),
   '/musicplayer': (context) => const MusicPlayerScreen(selectedIndex: 0),
+  '/usersettings': (context) => const UserSettingsPage(),
 };

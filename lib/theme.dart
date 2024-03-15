@@ -3,11 +3,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'colors.dart' as customcolor;
 
 var appTheme = ThemeData(
-  scaffoldBackgroundColor: customcolor.AppColor.homePageBackground,
+  //scaffoldBackgroundColor: customcolor.AppColor.homePageBackground,
+  scaffoldBackgroundColor: const Color.fromRGBO(228, 217, 189, 1.0),
   fontFamily: GoogleFonts.nunito().fontFamily,
   primaryColor: Colors.black,
   bottomAppBarTheme: const BottomAppBarTheme(
-    color: Colors.yellow,
+    color: Color.fromRGBO(228, 217, 189, 1.0),
   ),
   textTheme: const TextTheme(
     bodyLarge: TextStyle(color: Colors.black, fontSize: 18),
